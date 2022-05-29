@@ -38,5 +38,20 @@ namespace GenericsProgram
                 return thirdNum;
             }
         }
+        public string MaxString(string firstStr, string secondStr, string thirdStr)
+        {
+            if (firstStr.CompareTo(secondStr) > 0 && firstStr.CompareTo(thirdStr) > 0)
+            {
+                return firstStr;
+            }
+            else if (secondStr.CompareTo(firstStr) > 0 && secondStr.CompareTo(thirdStr) > 0)
+            {
+                return secondStr;
+            }
+            else
+            {
+                return thirdStr;
+            }
+        }
     }
 }
