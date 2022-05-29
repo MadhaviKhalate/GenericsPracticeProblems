@@ -6,34 +6,27 @@ using System.Threading.Tasks;
 
 namespace GenericsProgram
 {
-    public class FindMaximum<T> where T : IComparable
+    public class GenericClass<T> where T : IComparable
     {
-        private T firstValue, secondValue, thirdValue;
-
-        public FindMaximum(T firstValue, T secondValue, T thirdValue)
+        public T[] data;
+        public GenericClass(T[] data)
         {
-            this.firstValue = firstValue;
-            this.secondValue = secondValue;
-            this.thirdValue = thirdValue;
+            this.data = data;
         }
-        public T CheckMax()
+        public static T[] sort(T[] data)
         {
-            if (firstValue.CompareTo(secondValue) > 0 && firstValue.CompareTo(thirdValue) > 0
-                || firstValue.CompareTo(secondValue) >= 0 && firstValue.CompareTo(thirdValue) > 0
-                || firstValue.CompareTo(secondValue) > 0 && firstValue.CompareTo(thirdValue) >= 0)
-            {
-                return firstValue;
-            }
-            else if (secondValue.CompareTo(firstValue) > 0 && secondValue.CompareTo(thirdValue) > 0
-                || secondValue.CompareTo(firstValue) >= 0 && secondValue.CompareTo(thirdValue) > 0
-                || secondValue.CompareTo(firstValue) > 0 && secondValue.CompareTo(thirdValue) >= 0)
-            {
-                return secondValue;
-            }
-            else
-            {
-                return thirdValue;
-            }
+            Array.Sort(data);
+            return data;
+        }
+        public static T MaxValue(params T[] data)
+        {
+            var sortedData = sort(data);
+            return sortedData[data.Length - 1];
+        }
+        public T printMax()
+        {
+            var Result = GenericClass<T>.MaxValue(this.data);
+            return Result;
         }
     }
 }
