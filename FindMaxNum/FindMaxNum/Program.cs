@@ -11,8 +11,10 @@ namespace GenericsProgram
             log.Info("Running Generics Program");
 
             GenericClass accessMethod = new GenericClass();
-            var forInt = accessMethod.MaxInt(500, 750, 200);
-            Console.WriteLine("The Maximum Integer Value is: " + forInt);
+            var IntValue = accessMethod.MaxInt(500, 750, 200);
+            var FloatValue = accessMethod.MaxFloat(23.567F, 100.218F, 654.574F);
+            Console.WriteLine("The Maximum Integer Value is: " + IntValue);
+            Console.WriteLine("The Maximum Float Value is: " + FloatValue);
         }
     }
 }
