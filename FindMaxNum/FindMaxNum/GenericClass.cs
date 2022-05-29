@@ -8,49 +8,23 @@ namespace GenericsProgram
 {
     public class GenericClass
     {
-        public int MaxInt(int firstNum, int secondNum, int thirdNum)
+        public T FindMax<T>(T firstValue, T secondValue, T thirdValue) where T : IComparable
         {
-            if (firstNum.CompareTo(secondNum) > 0 && firstNum.CompareTo(thirdNum) > 0)
+            if (firstValue.CompareTo(secondValue) > 0 && firstValue.CompareTo(thirdValue) > 0
+                || firstValue.CompareTo(secondValue) >= 0 && firstValue.CompareTo(thirdValue) > 0
+                || firstValue.CompareTo(secondValue) > 0 && firstValue.CompareTo(thirdValue) >= 0)
             {
-                return firstNum;
+                return firstValue;
             }
-            else if (secondNum.CompareTo(firstNum) > 0 && secondNum.CompareTo(thirdNum) > 0)
+            else if (secondValue.CompareTo(firstValue) > 0 && secondValue.CompareTo(thirdValue) > 0
+                || secondValue.CompareTo(firstValue) >= 0 && secondValue.CompareTo(thirdValue) > 0
+                || secondValue.CompareTo(firstValue) > 0 && secondValue.CompareTo(thirdValue) >= 0)
             {
-                return secondNum;
+                return secondValue;
             }
             else
             {
-                return thirdNum;
-            }
-        }
-        public float MaxFloat(float firstNum, float secondNum, float thirdNum)
-        {
-            if (firstNum.CompareTo(secondNum) > 0 && firstNum.CompareTo(thirdNum) > 0)
-            {
-                return firstNum;
-            }
-            else if (secondNum.CompareTo(firstNum) > 0 && secondNum.CompareTo(thirdNum) > 0)
-            {
-                return secondNum;
-            }
-            else
-            {
-                return thirdNum;
-            }
-        }
-        public string MaxString(string firstStr, string secondStr, string thirdStr)
-        {
-            if (firstStr.CompareTo(secondStr) > 0 && firstStr.CompareTo(thirdStr) > 0)
-            {
-                return firstStr;
-            }
-            else if (secondStr.CompareTo(firstStr) > 0 && secondStr.CompareTo(thirdStr) > 0)
-            {
-                return secondStr;
-            }
-            else
-            {
-                return thirdStr;
+                return thirdValue;
             }
         }
     }
