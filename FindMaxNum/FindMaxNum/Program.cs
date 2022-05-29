@@ -8,15 +8,14 @@ namespace GenericsProgram
         public static void Main(string[] args)
         {
             var log = NLog.LogManager.GetCurrentClassLogger();
-            log.Info("Running Generics Program");
+            log.Info("Running generics program using generic class");
 
-            GenericClass accessMethod = new GenericClass();
-            var IntValue = accessMethod.FindMax(500, 750, 200);
-            var FloatValue = accessMethod.FindMax(23.567F, 100.218F, 654.574F);
-            var StringValue = accessMethod.FindMax("Apple", "Peach", "Banana");
-            Console.WriteLine("The Maximum Integer Value is: " + IntValue);
-            Console.WriteLine("The Maximum Float Value is: " + FloatValue);
-            Console.WriteLine("The Maximum String Value is: " + StringValue);
+            FindMaximum<int> integerValue = new FindMaximum<int>(500, 200, 900);
+            Console.WriteLine("The Maximum Integer Value is: " + integerValue.CheckMax());
+            FindMaximum<float> floatValue = new FindMaximum<float>(20.374F, 40.652F, 80.764F);
+            Console.WriteLine("The Maximum Float Value is: " + floatValue.CheckMax());
+            FindMaximum<string> stringValue = new FindMaximum<string>("Apple", "Peach", "Bananna");
+            Console.WriteLine("The Maximum String Value is: " + stringValue.CheckMax());
 
         }
     }
