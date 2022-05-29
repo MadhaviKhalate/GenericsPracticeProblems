@@ -8,25 +8,30 @@ namespace GenericsProgram
 {
     public class GenericClass<T> where T : IComparable
     {
-        public T[] data;
-        public GenericClass(T[] data)
+        public T[] value;
+        public GenericClass(T[] value)
         {
-            this.data = data;
+            this.value = value;
         }
-        public static T[] sort(T[] data)
+        public static T[] sort(T[] value)
         {
-            Array.Sort(data);
-            return data;
+            Array.Sort(value);
+            return value;
         }
-        public static T MaxValue(params T[] data)
+        public static T findMaximum(params T[] value)
         {
-            var sortedData = sort(data);
-            return sortedData[data.Length - 1];
+            var sorted_values = sort(value);
+            return sorted_values[value.Length - 1];
         }
-        public T printMax()
+        public T ReturnMax()
         {
-            var Result = GenericClass<T>.MaxValue(this.data);
+            var Result = GenericClass<T>.findMaximum(this.value);
             return Result;
+        }
+        public void printMax()
+        {
+            var max = findMaximum(this.value);
+            Console.WriteLine("Maximum value is: " + max);
         }
     }
 }
